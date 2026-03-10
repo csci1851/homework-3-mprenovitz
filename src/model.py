@@ -23,13 +23,13 @@ def evaluate_classifier(model, X_test, y_test):
    """
    TODO: Compute and return accuracy, precision, recall, and F1 score
    """
-   y_pred = model.predict(X_test, y_test)
+   y_pred = model.predict(X_test)
    acc = accuracy_score(y_test, y_pred)
    prec = precision_score(y_test, y_pred)
    rec = recall_score(y_test, y_pred)
    f1 = f1_score(y_test, y_pred)
   
-   return acc, prec, rec, f1
+   return {'accuracy': acc, 'precision': prec, 'recall': rec, 'f1': f1}
 
 
 
@@ -38,13 +38,13 @@ def evaluate_regressor(model, X_test, y_test):
    """
    TODO: Compute and return MAE, RMSE, and R2
    """
-   y_pred = model.predict(X_test, y_test)
+   y_pred = model.predict(X_test)
    mae = mean_absolute_error(y_test, y_pred)
    rse = np.sqrt(mean_squared_error(y_test, y_pred))
    r2 = r2_score(y_test, y_pred)
 
 
-   return mae, rse, r2
+   return {'MAE': mae, 'RSE': rse, 'R2': r2}
 
 
 
