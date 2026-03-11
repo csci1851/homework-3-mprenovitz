@@ -2,12 +2,12 @@ from sklearn.svm import SVC, SVR
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, mean_absolute_error, mean_squared_error, r2_score
 import numpy as np
 
-
-def svm_classifier(kernel: str = "linear", C: float = 1.0, degree: int = 3, gamma: str = "scale"):
+#make sure we can add randome_state
+def svm_classifier(kernel: str = "linear", C: float = 1.0, degree: int = 3, gamma: str = "scale", random_state: int = 42):
    """
    TODO: Return a scikit-learn SVC model with the specified parameters.
    """
-   return SVC(kernel=kernel, C=C, degree=degree, gamma=gamma)
+   return SVC(kernel=kernel, C=C, degree=degree, gamma=gamma, random_state=random_state)
 
 
 
@@ -44,7 +44,7 @@ def evaluate_regressor(model, X_test, y_test):
    r2 = r2_score(y_test, y_pred)
 
 
-   return {'MAE': mae, 'RSE': rse, 'R2': r2}
+   return {'MAE': mae, 'RMSE': rse, 'R2': r2}
 
 
 
